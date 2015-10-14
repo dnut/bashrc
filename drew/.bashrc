@@ -1,4 +1,4 @@
-#
+# Copyright Drew Nutter, GPL3
 # ~/.bashrc
 #
 
