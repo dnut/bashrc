@@ -1,3 +1,4 @@
+# Copyright Drew Nutter, GPL3
 alias eth='sh /home/drew/scripts/eth'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
