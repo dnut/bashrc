@@ -28,7 +28,10 @@ alias bashrc="vim ~/.bashrc && source ~/.bashrc"
 alias nethuh="ping -c 1 8.8.8.8"
 alias py="python -c"
 
-function random {
+cs () {
+	cd $@ && ls
+}
+random () {
 	# Return random string of length $@ or 20.
 	# Negative returns infinity.
 	chars=20    # Default if not given int.
@@ -37,7 +40,7 @@ function random {
 	fi
 	tr -cd "[:graph:]" < /dev/random | head -c $chars
 }
-function ssh {
+ssh () {
 	if ! pgrep -u $USER ssh-agent > /dev/null; then
 		ssh-agent > ~/.ssh-agent-thing
 		eval $(<~/.ssh-agent-thing)
@@ -48,49 +51,49 @@ function ssh {
 	fi
 	/usr/bin/ssh $@
 }
-function rm {
+rm () {
 	if [[ $1 == -rf ]] && [[ $2 == / ]]; then
 		echo "You are an idiot!!!"
 	else
 		/usr/bin/rm $@
 	fi
 }
-function ix { 
+ix () { 
 	curl -F 'f:1=<-' ix.io 2>/dev/null | tee /dev/tty | xclip -selection c;
 }
-function cpc {
+cpc () {
 	# Simple C++ compiler tool
 	g++ $1".cpp" -o $1".out"
 	chmod 755 $1".out"
 }
-function ear {
+ear {
 	# Execute And Return
 	./$1".out"
 	echo "Returns: "$?
 }
-function car {
+car () {
 	cpc $1
 	ear $1
 }
-function flac2mp3 {
+flac2mp3 () {
 	for a in *.flac; do
 		ffmpeg -i "$a" -qscale:a $@ "${a[@]/%flac/mp3}"
 	done
 }
-function = {
+= () {
 	calc="${@//p/+}"
 	calc="${calc//x/*}"
 	bc -l <<<"scale=10;$calc"
 }
-function da {
+da () {
 	xterm -e watch -tn 1 "(echo -e '\033[32mGID\t\t Name\t\t\t\t\t\t\t%\tDown\tSize\tSpeed\tUp\tS/L\tTime\033[36m'; \
 	diana list| cut -c -112; echo -e '\033[37m'; diana stats)"
 }
-function pc {
+pc () {
         ps -ely|grep CMD
         ps -ely|grep $@
 }
-function ipinfo {
+ipinfo () {
 	echo -e '\nIPv4 Information:'
 	curl -s ipinfo.io/`curl -s ip4.icanhazip.com`|perl -pe 's/\"//g;s/{//g;s/}//g;s/,\n/\n/g'
     echo -e '\nIPv6 Information:'
