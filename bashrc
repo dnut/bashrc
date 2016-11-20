@@ -15,7 +15,7 @@ red="\[\e[1;31m\]"
 green="\[\e[1;32m\]"
 blue="\[\e[1;34m\]"
 white="\[\e[0;37m\]"
-PS1="$green\u $blue\W $green\$ $white"
+PS1="$green\u@$HOSTNAME $blue\W $green\$ $white"
 
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l'
