@@ -66,7 +66,7 @@ cpc () {
 	g++ $1".cpp" -o $1".out"
 	chmod 755 $1".out"
 }
-ear {
+ear () {
 	# Execute And Return
 	./$1".out"
 	echo "Returns: "$?
