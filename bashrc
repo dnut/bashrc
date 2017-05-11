@@ -16,7 +16,7 @@ green="\[\e[1;32m\]"
 blue="\[\e[1;34m\]"
 white="\[\e[0;37m\]"
 
-if [[ $(whoami) -eq 'root' ]]; then
+if [[ $(whoami) == 'root' ]]; then
     PS1="$red\u@$HOSTNAME \W \$ $white"
 else
     PS1="$green\u@$HOSTNAME $blue\W $green\$ $white"
