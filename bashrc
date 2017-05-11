@@ -15,7 +15,12 @@ red="\[\e[1;31m\]"
 green="\[\e[1;32m\]"
 blue="\[\e[1;34m\]"
 white="\[\e[0;37m\]"
-PS1="$green\u@$HOSTNAME $blue\W $green\$ $white"
+
+if [[ $(whoami) -eq 'root' ]]; then
+    PS1="$red\u@$HOSTNAME \W \$ $white"
+else
+    PS1="$green\u@$HOSTNAME $blue\W $green\$ $white"
+fi
 
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l'
