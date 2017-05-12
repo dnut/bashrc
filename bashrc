@@ -58,7 +58,7 @@ ssh () {
 }
 rm () {
 	if [[ $1 == -rf ]] && [[ $2 == / ]]; then
-		echo "You are an idiot!!!"
+		echo "Don't do that."
 	else
 		/usr/bin/rm $@
 	fi
