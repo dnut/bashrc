@@ -56,13 +56,6 @@ ssh () {
 	fi
 	/usr/bin/ssh $@
 }
-rm () {
-	if [[ $1 == -rf ]] && [[ $2 == / ]]; then
-		echo "Don't do that."
-	else
-		/usr/bin/rm $@
-	fi
-}
 ix () { 
 	curl -F 'f:1=<-' ix.io 2>/dev/null | tee /dev/tty | xclip -selection c;
 }
