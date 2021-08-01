@@ -14,12 +14,14 @@ export EDITOR="vim"
 red="\[\e[1;31m\]"
 green="\[\e[1;32m\]"
 blue="\[\e[1;34m\]"
-white="\[\e[0;37m\]"
+reset="\[\e[0;0m\]"
 
 if [[ $(whoami) == 'root' ]]; then
-    PS1="$red\u@$HOSTNAME \W \$ $white"
+    PS1="$red\u@$HOSTNAME \W \$ $reset"
+elif [[ $(whoami) == 'drew' ]]; then
+    PS1="$green$HOSTNAME $blue\W $greenλ$reset "
 else
-    PS1="$green\u@$HOSTNAME $blue\W $green\$ $white"
+    PS1="$green\u@$HOSTNAME $blue\W $green\$ $reset"
 fi
 
 alias ls='ls --color=auto --group-directories-first'
